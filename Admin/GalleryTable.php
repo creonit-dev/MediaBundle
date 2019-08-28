@@ -35,10 +35,14 @@ class GalleryTable extends TableComponent
      * }
      *
      * @header
-     * {{ button('Добавить изображения', {icon: 'image', size: 'sm', type: 'success'}) | action('uploadImages', _query) }}
-     * {{ button('Добавить видео', {icon: 'youtube-play', size: 'sm', type: 'success'}) | open('Media.GalleryVideoEditor', _query) }}
+     * {% if _query.image != false %}
+     *   {{ button('Добавить изображения', {icon: 'image', size: 'sm', type: 'success'}) | action('uploadImages', _query) }}
+     * {% endif %}
+     * {% if _query.video != false %}
+     *   {{ button('Добавить видео', {icon: 'youtube-play', size: 'sm', type: 'success'}) | open('Media.GalleryVideoEditor', _query) }}
+     * {% endif %}
      *
-     * @cols Изображение / Видео, .
+     * @cols Элемент, .
      *
      * \GalleryItem
      * @entity Creonit\MediaBundle\Model\GalleryItem
