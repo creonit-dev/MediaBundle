@@ -1,0 +1,6 @@
+media:
+    file:
+        size:
+            b: B
+            kb: KB
+            mb: MB

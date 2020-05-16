@@ -1,0 +1,27 @@
+.media-file {
+
+}
+
+.media-file .thumbnail {
+    margin: 0;
+}
+
+.media-file .thumbnail > img,
+.media-file .thumbnail a > img {
+    max-width: 200px;
+}
+
+.media-video .thumbnail {
+    margin: 0;
+}
+
+.media-video .thumbnail > img,
+.media-video .thumbnail a > img {
+    max-width: 200px;
+}
+
+.media-video .thumbnail > iframe {
+    width: 300px;
+    height: 169px;
+    display: block;
+}

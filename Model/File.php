@@ -16,13 +16,8 @@ use Creonit\MediaBundle\Model\Base\File as BaseFile;
  */
 class File extends BaseFile
 {
-
-    public function getUrl(){
-        return '/' . ltrim($this->path . '/' . $this->name, '/');
+    public function getUrl()
+    {
+        return '/' . ltrim($this->path, '/') . '/' . $this->name;
     }
-
-    public function getRelativeUrl(){
-        return ltrim($this->getUrl(), '/');
-    }
-
 }

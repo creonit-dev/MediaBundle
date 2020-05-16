@@ -1,4 +1,24 @@
 services:
-    creonit_admin.gallery_module:
-        class: Creonit\MediaBundle\Admin\MediaModule
-        tags: [{ name: creonit_admin.module }]
+    Creonit\MediaBundle\Admin\MediaModule\MediaModule:
+        tags:
+            - { name: creonit_admin.module }
+
+    Creonit\MediaBundle\Admin\AdminPlugin:
+        tags:
+            - { name: creonit_admin.plugin }
+
+    Creonit\MediaBundle\VideoHandler\VideoResolver:
+
+    Creonit\MediaBundle\VideoHandler\YoutubeVideoHandler:
+        tags:
+            - { name: creonit_media.video_handler }
+
+    Creonit\MediaBundle\Service\MediaService:
+        autowire: true
+        public: true
+        arguments:
+            $projectDir: '%kernel.project_dir%'
+
+    creonit_media:
+        alias: Creonit\MediaBundle\Service\MediaService
+        public: true

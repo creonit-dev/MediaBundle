@@ -17,26 +17,4 @@ use Creonit\MediaBundle\Model\Base\Gallery as BaseGallery;
 class Gallery extends BaseGallery
 {
 
-    protected $cover;
-
-    public function getCover(){
-        if($this->cover) return $this->cover;
-        $this->cover = ImageQuery::create()
-            ->useGalleryItemQuery()
-            ->filterByGalleryId($this->id)
-            ->orderBySortableRank()
-            ->endUse()
-            ->findOne();
-
-        return $this->cover;
-    }
-
-    public function getList(){
-
-        return GalleryItemQuery::create()
-            ->filterByGalleryId($this->id)
-            ->orderBySortableRank()
-            ->find();
-    }
-
 }

@@ -7,38 +7,41 @@ database:
         namespace: Creonit\MediaBundle\Model
         defaultIdMethod: native
 
-    +vendor:
-        type: mysql
-        parameters:
-            Engine: InnoDB
-            Charset: utf8
-
-    +behavior:
-        - auto_add_pk
-
-    file:
-        path: text
-        name: text
-        original_name: text
-        extension: varchar(10)
-        mime: varchar(50)
-        size: int
-
-    image:
-        +behavior:
-            - file
-
-    video:
-        url: text
-
     gallery:
         +behavior:
             - timestampable
 
     gallery_item:
         gallery_id: int > gallery.id
+        title: text
+        description: text
+        cover: bool = 0 key
+        visible: bool = 1 key
         +behavior:
-            - sortable
-            - image
             - file
+            - image
             - video
+            - sortable
+            - timestampable
+
+    file:
+        path: text
+        name: text
+        original_name: text
+        extension: varchar(10)
+        mime: varchar(100)
+        size: int
+        +behavior:
+            - timestampable
+
+    image:
+        source: text
+        +behavior:
+            - file
+            - timestampable
+
+    video:
+        source: text
+        +behavior:
+            - file
+            - timestampable
